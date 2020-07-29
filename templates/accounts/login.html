@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <section id="login" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-sign-in-alt"></i> Login</h4>
+            </div>
+            <div class="card-body">
+            {% include 'partials/_alert.html' %}
+              <form method="POST">
+               {% csrf_token %} 
+                {{form | crispy}}
+
+                <input type="submit" value="Login" class="btn btn-secondary btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

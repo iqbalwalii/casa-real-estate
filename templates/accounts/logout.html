@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">User logged out</h1>
+          <p class="lead">Come Back Soon</p>
+               <a class="mt-5 text-light" href="{% url 'login' %}"> Log in Again</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock content %}

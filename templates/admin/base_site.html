@@ -1,0 +1,11 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block branding %}
+ <h1 id="head">
+    <img src="{% static 'img/logo.png' %}" alt="Casa real Estate" height="50" width="80" class="brand_img"> CASA Admin Panel
+ </h1>
+{% endblock %}
+{% block extrastyle %}
+ <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+{% endblock %}

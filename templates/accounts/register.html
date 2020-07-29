@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <section id="register" class="bg-light py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="card">
+            <div class="card-header bg-primary text-white">
+              <h4>
+                <i class="fas fa-user-plus"></i> Register</h4>
+            </div>
+            <div class="card-body">
+             {% comment %} alert {% endcomment %}
+             {% include 'partials/_alert.html' %}
+              <form action="{% url 'register' %}" method="POST">
+                 {% csrf_token %}
+                 {{form | crispy}}
+                 <input type="submit" value="Register" class="btn btn-secondary btn-block">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

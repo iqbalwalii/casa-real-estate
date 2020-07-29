@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">About CASA Real Estate</h1>
+          <p class="lead">No Matter what stage of Home journey you may be in, we're here to empower you<br> by making all things home simple, effecient and enjoyable</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> About</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>We Search For The Perfect Home</h2>
+          <p class="lead text-bold">Our Realtors work very hard to search the best homes for you</p>
+          <img src="{% static 'img/about.jpg' %}" alt="">
+          <p class="mt-4">
+          CASA is the leading real estate and rental marketplace dedicated to empowering consumers with data,
+          inspiration and knowledge around the place they call home, and connecting them with the best local 
+          professionals who can help. CASA serves the full lifecycle of owning and living in a home.
+          It starts with CASA's living database of more than 110 million Indian homes </p>
+        </div>
+        <div class="col-md-4">
+        {% if mvp_realtors %}
+            {% for mvp_realtor in mvp_realtors %}
+              <div class="card">
+                <img class="card-img-top" src="{{mvp_realtor.photo.url}}" alt="Seller of the month">
+                <div class="card-body">
+                <h5 class="card-title">Seller Of The Month</h5>
+                <h6 class="text-secondary">{{mvp_realtor.name}}</h6>
+                <p class="card-text">{{mvp_realtor.description}} </p>
+              </div>
+            {% endfor %}
+        {% else %}
+          <div class='col-md-12'>
+            <p>There is No Seller Of the month</p>
+            </div>
+        {% endif %}
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Our Realtors are at your service 24 hours a day</h4>
+    <hr>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+  </section>
+
+  <!-- Team -->
+    <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Our Team</h2>
+      <div class="row text-center">
+  {% if realtors %}
+    {% for realtor in realtors %} 
+        <div class="col-md-4">
+          <img src="{{realtor.photo.url}}" alt="" class="rounded-circle mb-3">
+          <h4>{{realtor.name}}</h4>
+          <p class="text-success">
+            <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i>{{realtor.phone}}</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> {{realtor.email}}</p>
+        </div>
+
+    {% endfor %}
+  {% else %}
+    <div class='col-md-12'>
+      <p> There Are No Realtors</p>
+    </div>  
+  {% endif %}
+  </section>
+
+{% endblock content %}

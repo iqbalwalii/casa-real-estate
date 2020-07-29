@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Django",
+      "type": "python",
+      "request": "launch",
+      "stopOnEntry": false,
+      "pythonPath": "C:/Users/Batman//Envs/deathstar/Scripts/python.exe",
+      "program": "C:/Users/Batman/Projects/casa/manage.py",
+        "args": [
+            "runserver",
+            "1818"
+        ],
+        "debugOptions": [
+            "WaitOnAbnormalExit",
+            "WaitOnNormalExit",
+            "RedirectOutput",
+            "DjangoDebugging"
+        ],
+        "env": {
+            "DJANGO_DB_NAME": "aroounddb",
+            "DJANGO_DB_USER": "codeslave",
+            "DJANGO_DB_PASSWORD": "codeslave",
+            "DJANGO_DB_HOST": "172.17.0.2",
+            "DJANGO_DB_PORT": "5432",
+            "DJANGO_DEBUG": "True",
+            "DJANGO_SETTINGS_MODULE": "settings"
+        }
+    },
+  ]
+}
